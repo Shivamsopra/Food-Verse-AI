@@ -69,5 +69,11 @@ def meal_plan():
     if pref not in {'vegetarian','egg','any'}: return jsonify(error='Choose vegetarian, egg, or any.'),400
     meals={'breakfast':'Oats with banana' if budget=='low' else 'Poha with curd','lunch':'Dal, roti and seasonal vegetables','snack':'Seasonal fruit or roasted chana','dinner':'Vegetable rice bowl' if pref=='vegetarian' else 'Rice, vegetables and a protein of choice'}
     return jsonify(preference=pref,goal=goal,budget=budget,meals=meals,note='General meal ideas, not medical or dietetic advice.')
+import os
 
-if __name__=='__main__': app.run(debug=True,port=5000)
+if __name__ == '__main__':
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 5000)),
+        debug=False
+    )
