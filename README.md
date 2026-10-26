@@ -2,7 +2,7 @@
 
 A lightweight SmartBridge project prototype with a React frontend and Flask API. It demonstrates food information, freshness warning checklist, kitchen hygiene checklist, recipe suggestions, and a sample meal planner.
 
-**Honest scope:** This MVP uses reference nutrition data and rule-based checklists/suggestions. It does not include trained image recognition or video analysis; image upload is preview-only. Freshness and hygiene results are not food-safety certifications.
+**Honest scope:** This MVP uses reference nutrition data and rule-based checklists/suggestions. It does not include trained image recognition or video analysis; image upload is preview-only. The meal planner uses simple rules and is not a personalised clinical nutrition system. Freshness and hygiene results are not food-safety certifications.
 
 ## Run locally
 
@@ -24,6 +24,16 @@ npm install
 npm run dev
 ```
 Open the Vite URL shown (usually http://localhost:5173).
+
+## Testing
+
+From the `backend` directory, install dependencies and run the automated API checks:
+
+```bash
+python -m unittest test_app.py
+```
+
+The tests cover health, reference nutrition, unknown foods, checklist responses, recipe suggestions, and meal-plan input validation. Run them before reporting that testing is complete.
 
 ## API
 `GET /api/health`; `POST /api/food-info`; `POST /api/freshness-check`; `POST /api/hygiene-score`; `POST /api/recipes`; `POST /api/meal-plan`.
